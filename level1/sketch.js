@@ -1,9 +1,30 @@
 function setup() {
-  createCanvas(400, 800);
+  createCanvas(800,400);
 }
 
 function draw() {
   background("lightblue");
-  fill("green")
-  rect(0,400,800,800);
+  fill("green");
+  rect(0,200,800,400);
+  fill("blue");
+  ellipse(600,275,200,75);
+  noStroke();
+  fill("white");
+  cloud(200,30)
+  cloud(500,40)
+  cloud(350,45)
+  cloud(650,65)
+  cloud(50,68)
+  cloud(800,55)
+  fill("red");
+  rect(150,110,200,170)
+}
+
+function cloud(x,y){
+  noStroke();
+  fill("white");
+  ellipse(x,y,40,20)
+  ellipse(x-25,y+5,40,20)
+  ellipse(x,y+10,40,20)
+  ellipse(x+25,y+5,40,20)
 }
