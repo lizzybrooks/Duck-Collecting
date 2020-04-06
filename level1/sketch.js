@@ -1,8 +1,9 @@
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(400, 800);
 }
 
 function draw() {
-  background("blue");
-  rect(0,400,800,800)
+  background("lightblue");
+  fill("green")
+  rect(0,400,800,800);
 }
