@@ -1,3 +1,9 @@
+let farmhouse;
+
+function preload() {
+farmhouse = loadImage('pictures/farmhouse.png')
+}
+
 function setup() {
   createCanvas(800,400);
 }
@@ -16,8 +22,10 @@ function draw() {
   cloud(650,65)
   cloud(50,68)
   cloud(800,55)
-  fill("red");
-  rect(150,110,200,170)
+  //fill("red");
+  //rect(150,110,200,170)
+
+  image(farmhouse,150,100, farmhouse.width / 1.5, farmhouse.height / 1.5)
 }
 
 function cloud(x,y){
