@@ -12,10 +12,31 @@ function draw(){
   strokeWeight(6);
   rect(0,264,800,136); //floor
 
+
   fill(163,204,255); //windows
-  strokeWeight(10);
+  stroke(115,115,115);
+  strokeWeight(7);
   rect(50,25,300,75);
   rect(450,25,300,75);
+
+
+  textSize(22);
+  fill(0,0,0,40);
+  noStroke();
+  textFont('Impact');
+  text('DUCK CITY SHIPPING CO.', 295, 20);
+
+  fill(51,26,0); //small cylinder
+  stroke(77,40,0);
+  strokeWeight(2);
+  ellipse(60,295,36,10); //bot ellipse
+  noStroke();
+  rect(42,245,36,50);
+  stroke(77,40,0);
+  strokeWeight(2);
+  ellipse(60,245,36,10); //top ellipse
+  line(42,245,42,295);
+  line(78,245,78,295);
 
   stroke(134,89,45); //right crate: 10 width planks
   strokeWeight(3);
@@ -39,8 +60,6 @@ function draw(){
   line(165,280,210,280); //hor bot bot left
   line(220,280,265,280); //hor bot bot right
 
-
-
   stroke(96,64,32); //left crate: 20 width planks
   strokeWeight(3);
   fill(220,160,102);
@@ -52,7 +71,6 @@ function draw(){
 
   line(85,240,185,240); //horizontal
   line(85,260,185,260);
-
 
   fill(134,89,45); //ladder
   stroke(134,89,45);
@@ -67,4 +85,25 @@ function draw(){
   ellipse(498,130,70,5); //sixth rung
   ellipse(498,100,70,5); //seventh rung
   ellipse(498,70,70,5); //eighth rung
+
+  fill(114,89,65); //platform
+  stroke(96,64,32);
+  strokeWeight(3);
+  rect(535,110,20,190); //supports
+  rect(750,110,20,190);
+  rect(535,110,235,20); //top
+
+  fill(51,26,0); //plat cylinder
+  stroke(103,53,0,70);
+  strokeWeight(3);
+  ellipse(720,292,40,16); //bot ellipse
+  noStroke();
+  rect(700,160,40,132);
+  stroke(103,53,0,70);
+  strokeWeight(3);
+  ellipse(720,160,40,16); //top ellipse
+  line(700,160,700,292);
+  line(740,160,740,292);
+
+
 }
