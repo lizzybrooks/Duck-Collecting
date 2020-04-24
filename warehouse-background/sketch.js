@@ -17,12 +17,31 @@ function draw(){
   rect(50,25,300,75);
   rect(450,25,300,75);
 
-  stroke(134,89,45); //right crate
+  stroke(134,89,45); //right crate: 10 width planks
   strokeWeight(3);
   fill(220,160,102);
   rect(165,170,100,130);
+  line(210,170,210,300); //verticle left
+  line(220,170,220,300); //verticle right
 
-  stroke(96,64,32); //left crate
+  line(165,230,210,230); //hor mid top left
+  line(220,230,265,230); //hor mid top right
+  line(165,240,210,240); //hor mid bot left
+  line(220,240,265,240); //hor mid bot right
+
+  line(165,190,210,190); //hor top top left
+  line(220,190,265,190); //hor top top right
+  line(165,200,210,200); //hor top bot left
+  line(220,200,265,200); //hor top bot right
+
+  line(165,270,210,270); //hor bot top left
+  line(220,270,265,270); //hor bot top right
+  line(165,280,210,280); //hor bot bot left
+  line(220,280,265,280); //hor bot bot right
+
+
+
+  stroke(96,64,32); //left crate: 20 width planks
   strokeWeight(3);
   fill(220,160,102);
   rect(85,200,100,100);
