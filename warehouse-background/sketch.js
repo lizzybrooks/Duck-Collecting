@@ -105,5 +105,23 @@ function draw(){
   line(700,160,700,292);
   line(740,160,740,292);
 
+  fill(153,102,51); //plat crate
+  stroke(103,53,0);
+  strokeWeight(4);
+  rect(580,220,90,80);
+  line(600,220,600,300);
+  line(610,220,610,300);
+  line(650,220,650,300);
+  line(640,220,640,300);
+
+  fill(153,102,51); //far right crate
+  stroke(103,53,0);
+  strokeWeight(4);
+  rect(285,230,50,70);
+  line(285,242,335,242); //top plank
+  line(285,250,335,250);
+  line(285,270,335,270); //bot plank
+  line(285,285,335,285);
+
 
 }
