@@ -10,6 +10,7 @@ truck = loadImage('pictures/truck.png')
 
 function setup() {
   createCanvas(800,400);
+
 }
 
 function draw() {
@@ -66,7 +67,24 @@ function draw() {
   image(truck,400,185, truck.width/2.5, truck.height/2.5)
   image(rowboat,600,250, rowboat.width/3, rowboat.height/3)
   image(farmhouse,150,60, farmhouse.width / 1.2, farmhouse.height / 1.2)
+
+  stroke("black");
+  push()
+  strokeWeight(3);
+  line(600,190,600,210)
+  line(600,210,590,220)
+  line(600,210,605,215)
+  line(605,215,602.5,220)
+  line(600,197.5,595,202.5)
+  line(595,202.5,605,207.5)
+  pop()
+  strokeWeight(1);
+  fill("blue");
+  ellipse(600,190,10,10)
+
 }
+
+
 
 function cloud(x,y){
   noStroke();
