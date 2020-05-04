@@ -111,6 +111,14 @@ class Avatar {
     if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
         this.y += this.speed;
     }
+
+    if (keyIsDown(RIGHT_ARROW)){
+      this.x += this.speed;
+    }
+
+    if (keyIsDown(LEFT_ARROW)){
+      this.x -= this.speed;
+    }
 	}
 
   die(){

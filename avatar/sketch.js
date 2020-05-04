@@ -1,6 +1,8 @@
 let farmhouse;
 let rowboat;
 let truck;
+let me;
+let ducks;
 
 function preload() {
 farmhouse = loadImage('pictures/farmhouse.png')
@@ -10,7 +12,8 @@ truck = loadImage('pictures/truck.png')
 
 function setup() {
   createCanvas(800,400);
-
+  me = new Avatar(width/2,300,3)
+  ducks = new Duck(780,98)
 }
 
 function draw() {
@@ -27,6 +30,14 @@ function draw() {
   cloud(650,65)
   cloud(50,68)
   cloud(800,55)
+
+  image(truck,400,185, truck.width/2.5, truck.height/2.5)
+  image(rowboat,600,250, rowboat.width/3, rowboat.height/3)
+  image(farmhouse,150,60, farmhouse.width / 1.2, farmhouse.height / 1.2)
+
+  me.drawMe();
+  me.moveMe();
+
   field(25,270)
   field(50,270)
   field(75,270)
@@ -64,27 +75,76 @@ function draw() {
   field(125,320)
   field(150,320)
 
-  image(truck,400,185, truck.width/2.5, truck.height/2.5)
-  image(rowboat,600,250, rowboat.width/3, rowboat.height/3)
-  image(farmhouse,150,60, farmhouse.width / 1.2, farmhouse.height / 1.2)
-
-  stroke("black");
-  push()
-  strokeWeight(3);
-  line(600,190,600,210)
-  line(600,210,590,220)
-  line(600,210,605,215)
-  line(605,215,602.5,220)
-  line(600,197.5,595,202.5)
-  line(595,202.5,605,207.5)
-  pop()
-  strokeWeight(1);
-  fill("blue");
-  ellipse(600,190,10,10)
+ ducks.drawDuck();
 
 }
 
+class Avatar{
 
+  constructor(x,y,speed){
+    this.x = x
+    this.y = y
+    this.speed = speed
+  }
+
+  drawMe(){
+    stroke("black");
+    push()
+    strokeWeight(3);
+    line(this.x,this.y,this.x,this.y+20)
+    line(this.x,this.y+20,this.x-10,this.y+30)
+    line(this.x,this.y+20,this.x+5,this.y+25)
+    line(this.x+5,this.y+25,this.x+2.5,this.y+30)
+    line(this.x,this.y+7.5,this.x-5,this.y+12.5)
+    line(this.x-5,this.y+12.5,this.x+5,this.y+17.5)
+    pop()
+    strokeWeight(1);
+    fill("blue");
+    ellipse(this.x,this.y,10,10)
+  }
+
+  moveMe(){
+    if (keyIsDown(UP_ARROW)){
+      this.y -= this.speed;
+    }
+
+    if (keyIsDown(DOWN_ARROW)){
+      this.y += this.speed;
+    }
+
+    if (keyIsDown(RIGHT_ARROW)){
+      this.x += this.speed;
+    }
+
+    if (keyIsDown(LEFT_ARROW)){
+      this.x -= this.speed;
+    }
+  }
+}
+
+class Duck{
+
+  constructor(x,y){
+    this.x = x
+    this.y = y
+  }
+
+  drawDuck(){
+    fill(255,219,77)
+    noStroke()
+    ellipse(this.x,this.y,10,8)
+  }
+
+  moveDuck(){
+  }
+
+  collectDuck(){
+    if (this.x >= me.x-15, this.x<= me.x+15, this.y > me.y-40, this.y < me.y+40){
+      this.x = this.x-680;
+      this.y = this.y-78;
+    }
+  }
+}
 
 function cloud(x,y){
   noStroke();
