@@ -4,8 +4,9 @@ let ducks;
 
 function setup() {
   createCanvas(800, 400);
-  me = new Avatar(width/2, 300, 3);
+  me = new Avatar(width/20, 250, 3);
   ducks = new Duck(700,98);
+  //ducks = new Duck(210,160); this is a second duck I want
 }
 
 function draw(){
@@ -130,10 +131,10 @@ function draw(){
   me.moveMe();
 
   ducks.drawDuck();
+  ducks.collectDuck();
 
 
 }
-
 
 
 class Avatar {
@@ -166,14 +167,7 @@ class Avatar {
 
 	}
 
-	moveMe(){
-    if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
-       this.y -= this.speed;
-    }
-
-    if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
-        this.y += this.speed;
-    }
+	moveMe(){ //475,300  and 521, 300 for bottom then 475,50 and 521, 50 for top of ladder
 
     if (keyIsDown(LEFT_ARROW)) { // if you hold the left arrow, move down by speed
         this.x -= this.speed;
@@ -182,6 +176,21 @@ class Avatar {
     if (keyIsDown(RIGHT_ARROW)) { // if you hold the left arrow, move down by speed
         this.x += this.speed;
     }
+
+    if (keyIsDown(TAB)) {
+      
+    }
+
+    if (me.x >= 475 && me.x <= 521 && me.y >= 20 && me.y <=250) {
+      if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
+         this.y -= this.speed;
+      }
+
+      if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
+          this.y += this.speed;
+      }
+    }
+
 	}
 
   die(){
@@ -195,21 +204,17 @@ class Duck {
     this.y = y;
 	}
 
-	// draw a ball on the screen at x,y
+	// draw a duck on the screen at x,y which is called at the top
 	drawDuck(){
     fill(255,219,77);
     noStroke();
     ellipse(this.x,this.y,20,20);
-
 	}
 
-	//update the location of the ball, so it moves across the screen
-	moveDuck(){
-	}
 
 	//if the person hits the duck, move the duck to 20,20
   collectDuck(){
-      if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+      if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+80){
           this.x = this.x-680;
           this.y = this.y-78;
 
