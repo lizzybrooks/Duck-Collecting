@@ -1,8 +1,11 @@
 //create an empty array called balls
+let me;
+let ducks;
 
 function setup() {
   createCanvas(800, 400);
-
+  me = new Avatar(width/2, 300, 3);
+  ducks = new Duck(700,98);
 }
 
 function draw(){
@@ -123,5 +126,93 @@ function draw(){
   line(285,270,335,270); //bot plank
   line(285,285,335,285);
 
+  me.drawMe();
+  me.moveMe();
 
+  ducks.drawDuck();
+
+
+}
+
+
+
+class Avatar {
+
+	constructor(x,y, speed){ //every avatar needs an x value, a y value, and a speed
+		    this.x = x;
+    		this.y = y;
+        this.speed = speed;
+	}
+
+	drawMe(){  // draw the running person
+    		stroke(0,0,0);
+        strokeWeight(3);
+    		noFill();
+		    ellipse(this.x, this.y, 25, 25); //head
+        ellipse(this.x+5, this.y+3, 15,13); //mouth
+        ellipse(this.x-5, this.y-3, 3, 3); //eye
+        line(this.x,this.y+12, this.x, this.y+40); //torso
+        line(this.x, this.y+40, this.x-20, this.y+60); //left leg
+        ellipse(this.x-15, this.y+60, 10, 5); //left shoe
+        line(this.x, this.y+40, this.x+10, this.y+50); //right leg
+        line(this.x+10, this.y+50, this.x+5, this.y+60); //right leg
+        ellipse(this.x+10, this.y+60, 10, 5); //right shoe
+        line(this.x, this.y+15, this.x-10, this.y+25); //top arm
+        line(this.x-10, this.y+25, this.x+10, this.y+35); //bottom arm
+        fill(51,204,255);
+        triangle(this.x-10,this.y-8,this.x+8,this.y-11,this.x-5,this.y-32);
+        noFill();
+        ellipse(this.x-6,this.y-35,5,5);
+
+	}
+
+	moveMe(){
+    if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
+       this.y -= this.speed;
+    }
+
+    if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
+        this.y += this.speed;
+    }
+
+    if (keyIsDown(LEFT_ARROW)) { // if you hold the left arrow, move down by speed
+        this.x -= this.speed;
+    }
+
+    if (keyIsDown(RIGHT_ARROW)) { // if you hold the left arrow, move down by speed
+        this.x += this.speed;
+    }
+	}
+
+  die(){
+  }
+}
+
+
+class Duck {
+	constructor(x,y){
+		this.x = x;
+    this.y = y;
+	}
+
+	// draw a ball on the screen at x,y
+	drawDuck(){
+    fill(255,219,77);
+    noStroke();
+    ellipse(this.x,this.y,20,20);
+
+	}
+
+	//update the location of the ball, so it moves across the screen
+	moveDuck(){
+	}
+
+	//if the person hits the duck, move the duck to 20,20
+  collectDuck(){
+      if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+          this.x = this.x-680;
+          this.y = this.y-78;
+
+    		}
+  	}
 }
