@@ -11,6 +11,18 @@ function setup() {
 
 function draw(){
 	background(128,128,128);
+  world();
+
+  me.drawMe();
+  me.moveMe();
+
+  ducks.drawDuck();
+  ducks.collectDuck();
+
+
+}
+
+function world(){
   fill(178,178,178);
   stroke(115,115,115);
   strokeWeight(6);
@@ -126,16 +138,7 @@ function draw(){
   line(285,250,335,250);
   line(285,270,335,270); //bot plank
   line(285,285,335,285);
-
-  me.drawMe();
-  me.moveMe();
-
-  ducks.drawDuck();
-  ducks.collectDuck();
-
-
 }
-
 
 class Avatar {
 
@@ -178,20 +181,23 @@ class Avatar {
     }
 
     if (keyIsDown(TAB)) {
-      
+
     }
 
-    if (me.x >= 475 && me.x <= 521 && me.y >= 20 && me.y <=250) {
+    if (me.x >= 475 && me.x <= 521 && me.y >= 20 && me.y <=254){
       if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
          this.y -= this.speed;
       }
-
+    }
+    if (me.x >= 475 && me.x <= 521 && me.y >= 18 && me.y <=250){
       if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
           this.y += this.speed;
       }
     }
+    print(me.x, me.y)
+    }
 
-	}
+
 
   die(){
   }
